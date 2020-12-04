@@ -27,7 +27,7 @@ Each robot requests and communicate the requested cells based on this occpuancy 
 2. nlopt (https://github.com/stevengj/nlopt)
 3. QwtPlot (https://qwt.sourceforge.io/)
 
-#Usage
+# Usage
 
 This project is licensed under MIT license. If you use this code (also partially), I would appreciate if you would kindly cite in publications or any other usage (commercial or not commercial) then DMPCRobotSimulation by
 
