@@ -64,7 +64,6 @@ SOURCES += main.cpp \
     intersectionwindow.cpp \
     simulationthread.cpp \
     startbutton.cpp \
-    messages.pb.cc \
     globalcarlist.cpp \
     carinformation.cpp \
     intersectionparameters.cpp \
@@ -113,7 +112,6 @@ HEADERS += \
     simulationthread.h \
     startbutton.h \
     intersectionparameters.h \
-    messages.pb.h \
     globalcarlist.h \
     carinformation.h \
     costcriteria.h \
@@ -145,13 +143,12 @@ OTHER_FILES += \
     messages.proto
 
 unix {
-  #`pkg-config --libs protobuf`
-LIBS += -L"$$OUT_PWD/../out" -L"$$PWD/../simulatoren_extern/google/src/.libs" -lsimulation_core -lpthread -lprotobuf -lnlopt#Core-Library for the basic simulation functions and NLOpt-package and NLOpt-package
+LIBS += -L"$$OUT_PWD/../out" -L"$$PWD/../simulatoren_extern/google/src/.libs" -lsimulation_core -lpthread -lnlopt#Core-Library for the basic simulation functions and NLOpt-package and NLOpt-package
 LIBS += -L$$PWD/../simulatoren_extern/qwt/lib -lqwt -lqwtmathml#QWT for Plot
 #LIBS += -L$$PWD/../simulatoren_extern/qwt3d/lib -lqwtplot3d -lGLU#Qwt3dPlot
 }
 win32 {
-  LIBS += -L"$$OUT_PWD/../out" -L"$$PWD/../simulatoren_extern/google/src/.libs" -L"$$PWD/../simulatoren_extern/qwt/lib" -lsimulation_core -lnlopt-0 -lprotobuf-10 -lqwt -lqwtmathml #Core-Library for the basic simulation functions and NLOpt-package
+  LIBS += -L"$$OUT_PWD/../out" -L"$$PWD/../simulatoren_extern/google/src/.libs" -L"$$PWD/../simulatoren_extern/qwt/lib" -lsimulation_core -lnlopt-0 -lqwt -lqwtmathml #Core-Library for the basic simulation functions and NLOpt-package
 }
 
 #as there system calls in windows does not accept / in paths,
@@ -187,14 +184,6 @@ nlopt.target = libnlopt-0.*
 nlopt.commands = $(COPY) $$shell_path($$PWD/../simulatoren_extern/optimize/nlopt/$$nlopt.target) $$shell_path($$OUT_PWD/../out/)
 #message ($$shell_path($$PWD/../simulatoren_extern/optimize/nlopt/$$nlopt.target))
 
-protobufprotoc.target = protoc.exe
-protobufprotoc.commands = $(COPY) $$shell_path($$PWD/../simulatoren_extern/google/src/.libs/$$protobufprotoc.target) $$shell_path($$OUT_PWD/../out/)
-
-protobufdll.target = lib*.dll
-protobufdll.commands = $(COPY) $$shell_path($$PWD/../simulatoren_extern/google/src/.libs/$$protobufdll.target) $$shell_path($$OUT_PWD/../out/)
-
-protobuflib.target = lib*.a
-protobuflib.commands = $(COPY) $$shell_path($$PWD/../simulatoren_extern/google/src/.libs/$$protobuflib.target) $$shell_path($$OUT_PWD/../out/)
 
 #message($$nlopt.target)
 
@@ -205,8 +194,8 @@ win32 {
   SOURCEWINPATH = $$shell_path($$DESTDIR/$${TARGET}.exe)
   TARGETWINPATH = $$shell_path($$CUSTOUTPWD)
   QMAKE_POST_LINK += $(COPY) $$SOURCEWINPATH $$TARGETWINPATH
-  QMAKE_EXTRA_TARGETS += nlopt protobufprotoc protobufdll protobuflib #here the internal qmake target has to be taken (nothing to do with Make!)
-  PRE_TARGETDEPS += $$nlopt.target $$protobufprotoc.target $$protobufdll.target $$protobuflib.target #here the filename has to be taken as in Makefile
+  QMAKE_EXTRA_TARGETS += nlopt #here the internal qmake target has to be taken (nothing to do with Make!)
+  PRE_TARGETDEPS += $$nlopt.target #here the filename has to be taken as in Makefile
 }
 
 DISTFILES += \
