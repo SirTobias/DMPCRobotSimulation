@@ -11,7 +11,7 @@ In short: This is a non-cooperative distributed model predictive control (DMPC) 
 ## Preliminaries
 
 What is [Model Predictive Control](https://en.wikipedia.org/wiki/Model_predictive_control)?
-What is [Distributed Model Predictive Control] (https://ieeexplore.ieee.org/document/946306)?
+What is [Distributed Model Predictive Control](https://ieeexplore.ieee.org/document/946306)?
 
 ## Detailed description 
 This scenario describes a 2D plane, where different agents (e.g. robots, vehicles, etc.) given fixed start positions try to achieve their individual targets while ensuring collison avoidance between each other. In the preset, start and targets are given in the edges of the 2D space and the agents have to traverse diagonal to reach their target. Each robot is under the regime of a local controller, which calculates the next movements, here control based on the received prediction of the other robot. The order is fixed (or calculated by a priority rule) while each robot solves an Optimal Control Problem [(OCP)](https://en.wikipedia.org/wiki/Optimal_control). The costs are roughly spoken the distance between current position and given individual target. The constraints depict the distances, which have to be kept to the other robots. 
