@@ -29,7 +29,7 @@ Each robot requests and communicate the requested cells based on this occpuancy 
 
 #Usage
 
-This project is licensed under MIT license. If you use this code (also partially), I would appreciate if you would kindly cite then DMPCRobotSimulation by
+This project is licensed under MIT license. If you use this code (also partially), I would appreciate if you would kindly cite in publications or any other usage (commercial or not commercial) then DMPCRobotSimulation by
 
 T. Sprodowski, A DMPC Robot Simulation, https://github.com/SirTobias/DMPCRobotSimulation
 
