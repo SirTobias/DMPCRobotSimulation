@@ -19,10 +19,18 @@ This scenario describes a 2D plane, where different agents (e.g. robots, vehicle
 Herein, a holonomic model is used for each simulated robot and for each robot, an online MPC controller is applied. Start and target positions are predefined (on diagonal directions opposite to each other). The 2D plane is quantised onto an occupancy grid. 
 
 ### Communication
-Each robot requests and communicate the requested cells for the 
+Each robot requests and communicate the requested cells based on this occpuancy grid, where the cells are discretised in an equidistant manner. 
 
 # Requirements
 
 1. Qt5 (open-source, https://qt.io)
 2. nlopt (https://github.com/stevengj/nlopt)
 3. QwtPlot (https://qwt.sourceforge.io/)
+
+#Usage
+
+This project is licensed under MIT license. If you use this code (also partially), I would appreciate if you would kindly cite then DMPCRobotSimulation by
+
+T. Sprodowski, A DMPC Robot Simulation, https://github.com/SirTobias/DMPCRobotSimulation
+
+Thank you.
